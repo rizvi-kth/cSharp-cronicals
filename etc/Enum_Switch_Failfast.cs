@@ -16,7 +16,8 @@ namespace TestConsole
         {
             Donkey ,
             Monkey ,
-            Lion
+            Lion ,
+            Bird
         }
 
         public static void Main()
@@ -41,20 +42,26 @@ namespace TestConsole
                     if (input != null)
                     {
                         AnimalEnum choice = (AnimalEnum) int.Parse(input);
+
+                        // A jump statement is required at every case/default block
+                        // jump statements: return, break, goto, goto case, continue and throw
                         switch (choice)
                         {
                             case AnimalEnum.Donkey:
                                 Console.WriteLine("This is Donkye");
-                                goto case AnimalEnum.Monkey; 
+                                goto case AnimalEnum.Monkey;                        // A jump statement is required
                             case AnimalEnum.Monkey:
                                 Console.WriteLine("This is Monkey");
-                                goto default;
+                                goto default;                                       // A jump statement is required
                             case AnimalEnum.Lion:
                                 Console.WriteLine("This is Lion");
-                                break;
+                                throw new Exception("This lion caused exception!"); // A jump statement is required
+                            case AnimalEnum.Bird:
+                                Console.WriteLine("This is Bird");
+                                break;                                              // A jump statement is required
                             default:
                                 Console.WriteLine("Not a valid choice");
-                                break;
+                                continue;                                           // A jump statement is required
                         }
                     }
                 }
