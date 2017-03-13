@@ -1,0 +1,14 @@
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\bin\Debug\ThreadedList.exe.config
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\bin\Debug\ThreadedList.exe
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\bin\Debug\ThreadedList.pdb
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\ThreadedList.csprojResolveAssemblyReference.cache
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\MainWindow.g.cs
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\App.g.cs
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\ThreadedList_MarkupCompile.cache
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\ThreadedList_MarkupCompile.lref
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\MainWindow.baml
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\ThreadedList.g.resources
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\ThreadedList.Properties.Resources.resources
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\ThreadedList.csproj.GenerateResource.Cache
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\ThreadedList.exe
+C:\Users\A547184\documents\visual studio 2015\Projects\TestWPF\ThreadedList\obj\Debug\ThreadedList.pdb
