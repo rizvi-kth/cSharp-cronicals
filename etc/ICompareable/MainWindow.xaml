@@ -1,0 +1,34 @@
+﻿<Window x:Class="ICompareable.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ICompareable"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Loaded="MainWindow_OnLoaded">
+    <Grid>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="299" Margin="10,10,0,0" VerticalAlignment="Top" Width="167">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}" />
+                        <Label Content="{Binding Price}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="299" Margin="340,10,0,0" VerticalAlignment="Top" Width="167">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Name}" />
+                        <Label Content="{Binding Price}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="button" Content="Sort By Name" HorizontalAlignment="Left" Margin="205,138,0,0" VerticalAlignment="Top" Width="100" Click="button_Click"/>
+        <Button x:Name="button1" Content="Sort by Price asc" HorizontalAlignment="Left" Margin="205,188,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Sort by Price dsc" HorizontalAlignment="Left" Margin="205,163,0,0" VerticalAlignment="Top" Width="100" Click="button2_Click"/>
+    </Grid>
+</Window>
