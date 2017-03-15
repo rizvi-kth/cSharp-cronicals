@@ -27,8 +27,15 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="button" Content="Sort By Name" HorizontalAlignment="Left" Margin="205,138,0,0" VerticalAlignment="Top" Width="100" Click="button_Click"/>
-        <Button x:Name="button1" Content="Sort by Price asc" HorizontalAlignment="Left" Margin="205,188,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click"/>
-        <Button x:Name="button2" Content="Sort by Price dsc" HorizontalAlignment="Left" Margin="205,163,0,0" VerticalAlignment="Top" Width="100" Click="button2_Click"/>
+        <Button x:Name="button" Content="Sort By Name" HorizontalAlignment="Left" Margin="208,215,0,0" VerticalAlignment="Top" Width="100" Click="button_Click"/>
+        <Button x:Name="button1" Content="Sort by Price asc" HorizontalAlignment="Left" Margin="208,265,0,0" VerticalAlignment="Top" Width="100" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Sort by Price dsc" HorizontalAlignment="Left" Margin="208,240,0,0" VerticalAlignment="Top" Width="100" Click="button2_Click"/>
+        <Button x:Name="button0" Content="Load Cars" HorizontalAlignment="Left" Margin="208,190,0,0" VerticalAlignment="Top" Width="100" Click="button0_Click"/>
+
+        <Button x:Name="buttonND_Bus" Content="Sort By Name dsc" HorizontalAlignment="Left" Margin="208,64,0,0" VerticalAlignment="Top" Width="100" Click="buttonND_Bus_Click"/>
+        <Button x:Name="buttonNA_Bus" Content="Sort By Name asc" HorizontalAlignment="Left" Margin="208,88,0,0" VerticalAlignment="Top" Width="100" Click="buttonNA_Bus_Click"/>
+        <Button x:Name="button1_Bus" Content="Sort by Price asc" HorizontalAlignment="Left" Margin="208,138,0,0" VerticalAlignment="Top" Width="100" Click="button1_Bus_Click"/>
+        <Button x:Name="button2_Bus" Content="Sort by Price dsc" HorizontalAlignment="Left" Margin="208,113,0,0" VerticalAlignment="Top" Width="100" Click="button2_Bus_Click"/>
+        <Button x:Name="button0_Bus" Content="Load Bus" HorizontalAlignment="Left" Margin="208,36,0,0" VerticalAlignment="Top" Width="100" Click="button0_Bus_Click"/>
     </Grid>
 </Window>

@@ -23,6 +23,7 @@ namespace ICompareable
             //return this.Price.CompareTo(other.Price);
         }
 
+
         private class SortPriceAscendingComparer : IComparer<Car>
         {
             public int Compare(Car c1, Car c2)
