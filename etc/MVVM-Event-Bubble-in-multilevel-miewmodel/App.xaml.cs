@@ -18,6 +18,7 @@ namespace MVVM_Event_Bubble_in_multilevel_miewmodel
             MainWindow mw = new MainWindow();
             mw.DataContext = new MainWindowViewModel();
             mw.Show();
+
             //ParentViewModel pvm = new ParentViewModel();
             //Chield1ViewModel pvm = new Chield1ViewModel();
             //Chield2ViewModel pvm = new Chield2ViewModel();
