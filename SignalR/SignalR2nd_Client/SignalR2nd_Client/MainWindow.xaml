@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Loaded="MainWindow_OnLoaded">
     <Grid>
-        <Button x:Name="button" Content="Connect" HorizontalAlignment="Left" Margin="32,31,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="button1" Content="Invoke On Server" HorizontalAlignment="Left" Margin="32,68,0,0" VerticalAlignment="Top" Width="117" Click="button1_Click"/>
+        <Button x:Name="button" Content="Connect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="button1" Content="Invoke On Server" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="117" Click="button1_Click"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="178" Margin="10,132,0,0" VerticalAlignment="Top" Width="497"/>
 
     </Grid>
 </Window>

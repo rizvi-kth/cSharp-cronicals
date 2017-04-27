@@ -37,14 +37,29 @@ namespace SignalR2nd_Client
         private void button_Click(object sender, RoutedEventArgs e)
         {
             var hubConnection = new HubConnection("http://localhost:37319/");
-            stockTickerHubProxy = hubConnection.CreateHubProxy("ChatHub");
+            stockTickerHubProxy = hubConnection.CreateHubProxy("MyChat");
             stockTickerHubProxy.On<string>("RecieveNotify", msg => Debug.WriteLine($">> Recieved message: {msg}"));
+            stockTickerHubProxy.On<StockInfo>("handleStockInfo", stock => Dispatcher.Invoke( ()=> handleStockInfo(stock)));
+            
             hubConnection.Start();
+        }
+
+        private void handleStockInfo(StockInfo stock)
+        {
+            listBox.Items.Add($"Stock:{stock.StockName } with value {stock.StockValue}");
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             stockTickerHubProxy.Invoke("ProcessChatMsg", "Rizvi", "Hello!");
         }
+    }
+
+    [DebuggerDisplay("Stock info : {StockName}")]
+    public class StockInfo
+    {
+        public string StockName { get; set; }
+        public int StockValue { get; set; }
+
     }
 }

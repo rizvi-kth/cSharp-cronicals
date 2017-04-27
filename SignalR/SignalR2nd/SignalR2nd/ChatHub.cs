@@ -5,18 +5,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
 
 namespace SignalR2nd
 {
+    public static class Online
+    {
+        public static HashSet<string> ConnectedIds = new HashSet<string>();
+    }
+
+    [HubName("MyChat")]
     public class ChatHub : Hub
     {
+        
+
         public void ProcessChatMsg(string name, string message)
         {
-
             var contextUser = Context.User;
             // Call the broadcastMessage method to update clients.
             Debug.WriteLine($">> Message from {name} is {message} with connection id {Context.ConnectionId}");
-            Clients.All.RecieveNotify(message);
+            Online.ConnectedIds.Add(Context.ConnectionId);
+            Clients.Caller.RecieveNotify(message);
         }
 
 
@@ -30,6 +39,9 @@ namespace SignalR2nd
             // the connection is established; for example, in a JavaScript client,
             // the start().done callback is executed.
             Debug.WriteLine($"Connection opened : {Context.ConnectionId}");
+            Clients.Caller.RecieveNotify(">> Connected!!");
+            Online.ConnectedIds.Add(Context.ConnectionId);
+
             return base.OnConnected();
         }
 
@@ -39,7 +51,7 @@ namespace SignalR2nd
             // For example: in a chat application, mark the user as offline, 
             // delete the association between the current connection id and user name.
             Debug.WriteLine($"Connection cloased : {Context.ConnectionId}" );
-
+            
             return base.OnDisconnected(false);
         }
 
