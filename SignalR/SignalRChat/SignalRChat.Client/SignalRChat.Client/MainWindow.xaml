@@ -7,10 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="416*"/>
+            <ColumnDefinition Width="103*"/>
+        </Grid.ColumnDefinitions>
         <Button x:Name="button" Content="Connect" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button1" Content="Transport Method" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="112" Click="button1_Click"/>
         <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="button3" Content="Button" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListBox x:Name="listBox" Margin="323,10,9.667,9.667" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

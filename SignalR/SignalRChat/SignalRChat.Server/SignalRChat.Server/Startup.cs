@@ -13,7 +13,11 @@ namespace SignalRChat.Server
         public void Configuration(IAppBuilder app)
         {
             // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
-            app.MapSignalR("/rzSignalr", new HubConfiguration());
+            var hubConfig = new HubConfiguration();
+            hubConfig.EnableDetailedErrors = true;
+            hubConfig.EnableJavaScriptProxies = false;
+            //hubConfig.Resolver
+            app.MapSignalR("/rzSignalr", hubConfig);
 
         }
     }
