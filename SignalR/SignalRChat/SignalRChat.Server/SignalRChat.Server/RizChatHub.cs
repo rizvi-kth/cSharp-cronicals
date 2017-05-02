@@ -30,19 +30,19 @@ namespace SignalRChat.Server
         {
             var version = Context.QueryString["chatversion"];
             Debug.WriteLine($"Chat Version : {version}");
-            Clients.Caller.ConformConnection(Context.ConnectionId, QueryStringS(Context.QueryString)); //, 
+            Clients.Caller.ConformConnection(Context.ConnectionId, QueryStringConvert(Context.QueryString)); //, 
 
             return base.OnConnected();
         }
 
-        private Dictionary<string, object> QueryStringS(INameValueCollection nameValueCollection)
+        private Dictionary<string, object> QueryStringConvert(INameValueCollection nameValueCollection)
         {
-            var Qs = new Dictionary<string, object>();
+            var queryStrings = new Dictionary<string, object>();
             foreach (var item in nameValueCollection)
             {
-                Qs.Add(item.Key,item.Value);
+                queryStrings.Add(item.Key,item.Value);
             }
-            return Qs;
+            return queryStrings;
         }
     }
 }
