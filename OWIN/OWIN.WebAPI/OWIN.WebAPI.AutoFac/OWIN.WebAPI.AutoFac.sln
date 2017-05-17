@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWIN.WebAPI.AutoFac", "OWIN.WebAPI.AutoFac\OWIN.WebAPI.AutoFac.csproj", "{598EE94F-9FE9-482B-963D-CB52906B9076}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OWIN.WebAPI.SelfHostConsole", "OWIN.WebAPI.SelfHostConsole\OWIN.WebAPI.SelfHostConsole.csproj", "{1DC9B530-B7CC-42DB-B316-3BF58E1A2878}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{598EE94F-9FE9-482B-963D-CB52906B9076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598EE94F-9FE9-482B-963D-CB52906B9076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598EE94F-9FE9-482B-963D-CB52906B9076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598EE94F-9FE9-482B-963D-CB52906B9076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DC9B530-B7CC-42DB-B316-3BF58E1A2878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DC9B530-B7CC-42DB-B316-3BF58E1A2878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DC9B530-B7CC-42DB-B316-3BF58E1A2878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DC9B530-B7CC-42DB-B316-3BF58E1A2878}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
