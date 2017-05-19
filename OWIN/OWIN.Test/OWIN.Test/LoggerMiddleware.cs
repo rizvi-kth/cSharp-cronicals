@@ -25,9 +25,9 @@ namespace OWIN.Test
 
         public override async Task Invoke(IOwinContext context)
         {
-            _logger.LogInfo("Middleware begin");
+            _logger.LogInfo(" >> Middleware on request line.");
             await this.Next.Invoke(context);
-            _logger.LogInfo("Middleware end");
+            _logger.LogInfo(" << Middleware on response line.");
         }
     }
 
@@ -44,7 +44,7 @@ namespace OWIN.Test
 
         public void LogInfo(string msg)
         {
-            Debug.WriteLine($">> {msg}");
+            Debug.WriteLine($"LogMiddle {msg}");
         }
     }
 
@@ -56,7 +56,7 @@ namespace OWIN.Test
 
         public void LogInfo(string msg)
         {
-            Debug.WriteLine($">N> {msg}");
+            Debug.WriteLine($"NextLogMiddle {msg}");
         }
     }
 }

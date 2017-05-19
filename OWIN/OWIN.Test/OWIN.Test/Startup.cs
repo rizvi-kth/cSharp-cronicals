@@ -36,6 +36,16 @@ namespace OWIN.Test
             app.Use<LoggerMiddleware>(new TraceLogger());
             // Next middleware 
             app.Use<LoggerMiddleware>(new TraceLoggerNext());
+            // Another Middleware
+            app.Use(async (environment, next) => {
+                Console.WriteLine($">> Requesting {environment.Request.Path}");
+                // Everything before next() call is request processing.
+                await next();
+                // Everything after next() call is response processing.
+                Console.WriteLine($">> Responsing {environment.Response.StatusCode}");
+
+            });
+
 
             app.UseWelcomePage("/");
 
