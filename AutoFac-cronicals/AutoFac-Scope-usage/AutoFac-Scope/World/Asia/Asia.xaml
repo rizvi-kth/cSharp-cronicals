@@ -1,0 +1,25 @@
+﻿<UserControl xmlns:SouthAsia="clr-namespace:AutoFac_Scope.World.Asia.SouthAsia"  x:Class="AutoFac_Scope.World.Asia.Asia"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutoFac_Scope.World.Asia"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type SouthAsia:SouthAsiaViewModel}">
+            <SouthAsia:SouthAsia />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid Margin="5" Background="AntiqueWhite">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Asia Region" Grid.RowSpan="3"></TextBlock>
+        <ContentControl Grid.Row="1" Content="{Binding SouthAsiaRegion}" Grid.RowSpan="3"></ContentControl>
+
+    </Grid>
+</UserControl>
