@@ -12,7 +12,7 @@ namespace AutoFac_Scope
     {
         public IContainer AppContainer { get; set; }
 
-        // This ServiceProvider will not be a service locator pattern as long as you 
+        // This ServiceProvider will NOT be a service locator pattern as long as you 
         // 1. Dont share the container in a global static function
         // 2. Dont use the container as a dependency; rather If components 
         //    have a dependency on the container (or on a lifetime scope), 
@@ -29,11 +29,11 @@ namespace AutoFac_Scope
                 service = scope.Resolve<T>();
             }
             // Debug Condition : 
-            if (service.GetType().Equals(typeof(AutoFac_Scope.Main.MainWindowViewModel)))
-            {
-                var vm = service as AutoFac_Scope.Main.MainWindowViewModel;
-                Debug.WriteLine($">> WorldViewModel: {vm.CurrentViewModel.GetHashCode()}") ;
-            }
+            //if (service.GetType().Equals(typeof(AutoFac_Scope.Main.MainWindowViewModel)))
+            //{
+            //    var vm = service as AutoFac_Scope.Main.MainWindowViewModel;
+            //    Debug.WriteLine($">> WorldViewModel: {vm.CurrentViewModel.GetHashCode()}") ;
+            //}
 
 
             return service;

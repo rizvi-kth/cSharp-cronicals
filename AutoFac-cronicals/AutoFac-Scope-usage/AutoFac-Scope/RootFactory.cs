@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace AutoFac_Scope
 {
-    public class ViewModelFactory
+    public class RootFactory
     {
         IServiceProvider ServiceLocator;
-        public ViewModelFactory(IServiceProvider serviceloc)
+        public RootFactory(IServiceProvider serviceloc)
         {
             ServiceLocator = serviceloc;
         }

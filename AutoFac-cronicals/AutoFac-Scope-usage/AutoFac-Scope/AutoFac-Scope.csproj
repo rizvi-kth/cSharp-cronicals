@@ -64,7 +64,7 @@
     <Compile Include="IServiceProvider.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ServiceProvider.cs" />
-    <Compile Include="ViewModelFactory.cs" />
+    <Compile Include="RootFactory.cs" />
     <Compile Include="World\Asia\AsiaViewModel.cs" />
     <Compile Include="World\Asia\SouthAsia\SouthAsiaViewModel.cs" />
     <Compile Include="World\Europe\EastEurope\EastEuropeViewModel.cs" />
@@ -72,6 +72,7 @@
     <Compile Include="World\World.xaml.cs">
       <DependentUpon>World.xaml</DependentUpon>
     </Compile>
+    <Compile Include="World\WorldFactory.cs" />
     <Compile Include="World\WorldViewModel.cs" />
     <Compile Include="World\Asia\Asia.xaml.cs">
       <DependentUpon>Asia.xaml</DependentUpon>

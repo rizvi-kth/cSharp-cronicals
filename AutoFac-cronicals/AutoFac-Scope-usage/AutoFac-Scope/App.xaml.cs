@@ -21,7 +21,7 @@ namespace AutoFac_Scope
                         
             var builder = new ContainerBuilder();
             builder.RegisterType<ServiceProvider>().As<IServiceProvider>().SingleInstance();
-            builder.RegisterType<ViewModelFactory>();
+            builder.RegisterType<RootFactory>();
             builder.RegisterType<MainWindowViewModel>();
             builder.RegisterType<World.WorldViewModel>().SingleInstance(); // Avoid Singletone and use Lifetime scope
             builder.RegisterType<World.Asia.AsiaViewModel>();

@@ -10,7 +10,7 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
     public class SouthAsiaViewModel : INotifyPropertyChanged
     {
         public ICommand LoadEuropeCommand { get; private set; }
-        public ViewModelFactory VMFactory { get; private set; }
+        public RootFactory VMFactory { get; private set; }
         public System.Timers.Timer timer = new System.Timers.Timer(200);
 
         private string _Feedback;
@@ -25,7 +25,7 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
         }
         
 
-        public SouthAsiaViewModel(ViewModelFactory vmFactory)
+        public SouthAsiaViewModel(RootFactory vmFactory)
         {
             LoadEuropeCommand = new RelayCommand((obj) => DoSomeThing());
             VMFactory = vmFactory;
