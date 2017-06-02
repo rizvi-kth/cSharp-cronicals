@@ -1,0 +1,32 @@
+﻿<UserControl xmlns:Asia="clr-namespace:AutoFac_Scope.World.Asia"  xmlns:Europe="clr-namespace:AutoFac_Scope.World.Europe"  x:Class="AutoFac_Scope.World.World"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutoFac_Scope.World"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type Europe:EuropeViewModel}">
+            <Europe:Europe />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type Asia:AsiaViewModel}">
+            <Asia:Asia />
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="This is planet earth."></TextBlock>
+        <TabControl Grid.Row="1" >
+            <TabItem Header="Asia">
+                <ContentControl Content="{Binding AsiaRegion}"></ContentControl>
+            </TabItem>
+            <TabItem Header="Europe" >
+                <ContentControl Content="{Binding EuropeRegion}"></ContentControl>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
