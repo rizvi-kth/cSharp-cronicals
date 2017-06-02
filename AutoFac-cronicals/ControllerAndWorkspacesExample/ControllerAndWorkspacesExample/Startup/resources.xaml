@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:workspaces="clr-namespace:ControllerAndWorkspacesExample.Workspaces"
+                    xmlns:startup="clr-namespace:ControllerAndWorkspacesExample.Startup">
+
+    <DataTemplate x:Key="MainViewTemplate">
+
+        <Grid d:DataContext="{d:DesignInstance startup:MainViewModel}"
+              FocusManager.FocusedElement="{Binding ElementName=AvailableWorkspaces}"
+              Background="WhiteSmoke">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="AvailableWorkspaces"
+                      VerticalAlignment="Center"
+                      ItemsSource="{Binding Path=AvailableWorkspaces, Mode=OneTime}"
+                      SelectedItem="{Binding Path=RequestedWorkspace, Mode=TwoWay}"
+                      Margin="10">
+            </ComboBox>
+
+            <Border Grid.Row="1">
+
+                <workspaces:WorkspaceHost x:Name="WorkspaceHost"
+                                          Margin="10"
+                                          Workspace="{Binding Path=CurrentWorkspace, Mode=OneWay}" />
+
+            </Border>
+
+        </Grid>
+
+    </DataTemplate>
+
+</ResourceDictionary>

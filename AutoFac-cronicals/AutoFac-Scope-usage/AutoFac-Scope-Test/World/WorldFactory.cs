@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AutoFac_Scope.World
 {
-    public class WorldFactory
-    {
+    //public class WorldFactory
+    //{
 
-    }
+    //}
 }

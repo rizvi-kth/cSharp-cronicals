@@ -10,7 +10,7 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
     public class SouthAsiaViewModel : INotifyPropertyChanged
     {
         public ICommand LoadEuropeCommand { get; private set; }
-        public RootFactory VMFactory { get; private set; }
+        public IFactory VMFactory { get; private set; }
         public System.Timers.Timer timer = new System.Timers.Timer(200);
 
         private string _Feedback;
@@ -25,10 +25,10 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
         }
         
 
-        public SouthAsiaViewModel(RootFactory vmFactory)
+        public SouthAsiaViewModel()//IFactory MyCreatorFactory
         {
             LoadEuropeCommand = new RelayCommand((obj) => DoSomeThing());
-            VMFactory = vmFactory;
+            //VMFactory = MyCreatorFactory;
 
             timer.Elapsed += (timerSender_, timerEvent_) => OnTimerElapsed(); ;
             timer.AutoReset = false;
@@ -45,12 +45,12 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
         private void DoSomeThing()
         {
             //GrandChield1ColorChangeEvent(new SolidColorBrush(Colors.Brown));
-            var europeVM = VMFactory.CreateEuropeViewModel<EuropeViewModel>();
-            var worldVM = VMFactory.CreateWorldViewModel<WorldViewModel>();
-            worldVM.EuropeRegion = (EuropeViewModel)europeVM;
-            Debug.WriteLine($" >>> worldVM :{worldVM.GetHashCode()}");
+            //var europeVM = VMFactory.GetViewModel<EuropeViewModel>();
+            //var worldVM = VMFactory.GetViewModel<WorldViewModel>();
+            //worldVM.EuropeRegion = (EuropeViewModel)europeVM;
+            //Debug.WriteLine($" >>> worldVM :{worldVM.GetHashCode()}");
 
-            Feedback = "Loaded!";
+            Feedback = "Not Loaded!";
 
         }
 
@@ -60,11 +60,8 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
         // Create the OnPropertyChanged method to raise the event
         protected void OnPropertyChanged(string name)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }

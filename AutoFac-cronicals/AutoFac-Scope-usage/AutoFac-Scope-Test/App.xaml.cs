@@ -1,5 +1,7 @@
 ﻿using Autofac;
+using Autofac.Core;
 using AutoFac_Scope.Main;
+using AutoFac_Scope.World;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -20,9 +22,10 @@ namespace AutoFac_Scope
         {
                         
             var builder = new ContainerBuilder();
-            builder.RegisterType<ServiceProvider>().As<IServiceProvider>().SingleInstance();
-            builder.RegisterType<RootFactory>();
-            builder.RegisterType<MainWindowViewModel>();
+            builder.RegisterType<ServiceProvider>().As<IServiceProvider>().SingleInstance();            
+            builder.RegisterType<ViewModelFactory>().InstancePerLifetimeScope();  // Singleton in the scope
+                        
+            builder.RegisterType<MainWindowViewModel>().SingleInstance();
             builder.RegisterType<World.WorldViewModel>().SingleInstance(); // Avoid Singletone and use Lifetime scope
             builder.RegisterType<World.Asia.AsiaViewModel>();
             builder.RegisterType<World.Asia.SouthAsia.SouthAsiaViewModel>();
@@ -41,9 +44,16 @@ namespace AutoFac_Scope
             //    mw.DataContext = scope.Resolve(typeof(MainWindowViewModel));
             //}
 
-            IServiceProvider serviceProvider = appContainer.Resolve<IServiceProvider>();
-            serviceProvider.AppContainer = appContainer;
-            mw.DataContext = serviceProvider.GetService<MainWindowViewModel>();
+            //IServiceProvider serviceProvider = appContainer.Resolve<IServiceProvider>();
+            //serviceProvider.AppContainer = appContainer;
+            var scope = appContainer.BeginLifetimeScope();
+            Parameter[] param = new Parameter[] { new NamedParameter("scope", scope) };
+            IFactory rootfac = appContainer.Resolve<ViewModelFactory>(param);
+            MainWindowViewModel _mainWindowViewModel = appContainer.Resolve<MainWindowViewModel>();
+            _mainWindowViewModel.CurrentViewModel = rootfac.GetViewModel<WorldViewModel>();
+
+
+            mw.DataContext = _mainWindowViewModel;
 
             mw.Show();
 

@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:another="clr-namespace:controllerAndWorkspacesExample.Workspaces.Another">
+
+    <DataTemplate x:Key="ViewTemplate" d:DataContext="{d:DesignInstance another:ViewModel}">
+
+        <Grid HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Border Background="Purple"
+                    VerticalAlignment="Stretch">
+            </Border>
+            
+        </Grid>
+        
+    </DataTemplate>
+    
+</ResourceDictionary>

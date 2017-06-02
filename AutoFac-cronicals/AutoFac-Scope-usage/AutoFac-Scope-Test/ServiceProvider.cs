@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 
 namespace AutoFac_Scope
 {
+    public interface IServiceProvider
+    {
+        IContainer AppContainer { get; set; }
+        T GetService<T>();
+    }
+
     public class ServiceProvider : IServiceProvider
     {
         public IContainer AppContainer { get; set; }

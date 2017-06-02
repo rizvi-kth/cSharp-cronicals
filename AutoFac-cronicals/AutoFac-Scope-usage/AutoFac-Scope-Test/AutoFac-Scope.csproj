@@ -59,12 +59,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AsiaViewModelBase.cs" />
-    <Compile Include="EuropeViewModelBase.cs" />
-    <Compile Include="IServiceProvider.cs" />
+    <Compile Include="World\Asia\AsiaViewModelBase.cs" />
+    <Compile Include="World\Europe\EuropeViewModelBase.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ServiceProvider.cs" />
-    <Compile Include="RootFactory.cs" />
+    <Compile Include="ViewModelFactory.cs" />
     <Compile Include="World\Asia\AsiaViewModel.cs" />
     <Compile Include="World\Asia\SouthAsia\SouthAsiaViewModel.cs" />
     <Compile Include="World\Europe\EastEurope\EastEuropeViewModel.cs" />
