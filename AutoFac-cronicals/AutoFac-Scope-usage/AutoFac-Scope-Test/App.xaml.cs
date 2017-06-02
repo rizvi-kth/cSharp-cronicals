@@ -46,21 +46,21 @@ namespace AutoFac_Scope
 
             //IServiceProvider serviceProvider = appContainer.Resolve<IServiceProvider>();
             //serviceProvider.AppContainer = appContainer;
+                        
+            MainWindowViewModel _mainWindowViewModel = appContainer.Resolve<MainWindowViewModel>();
+
             var scope = appContainer.BeginLifetimeScope();
             Parameter[] param = new Parameter[] { new NamedParameter("scope", scope) };
             IFactory rootfac = appContainer.Resolve<ViewModelFactory>(param);
-            MainWindowViewModel _mainWindowViewModel = appContainer.Resolve<MainWindowViewModel>();
+
             _mainWindowViewModel.CurrentViewModel = rootfac.GetViewModel<WorldViewModel>();
-
-
+            
             mw.DataContext = _mainWindowViewModel;
-
             mw.Show();
 
             watch.Stop();
             TimeSpan timeSpan = watch.Elapsed;
             Debug.WriteLine("Time: {0}h {1}m {2}s {3}ms", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
-
         }
 
     }
