@@ -1,19 +1,20 @@
 ﻿using AutoFac_Scope.World.Asia;
 using AutoFac_Scope.World.Europe;
+using System;
 using System.ComponentModel;
 
 namespace AutoFac_Scope.World
 {
     public class WorldViewModel : INotifyPropertyChanged
     {
-        //, EuropeViewModel _EuropeViewModel
-        public WorldViewModel(AsiaViewModel _AsiaViewModel)
-        {
-            //AsiaRegion = new AsiaViewModel();
+        // 2. This the Factory-method
+        public Func<EuropeViewModel> Factory { get; set; }
+        // 1. Client (SouthAsiaViewModel) should depend on a Factory.
+        // AutoFac Delegate-Factory is used to resolve dependency.
+        public WorldViewModel(AsiaViewModel _AsiaViewModel, Func<EuropeViewModel> factory)
+        {            
             AsiaRegion = _AsiaViewModel;
-
-            //EuropeRegion = new EuropeViewModel();
-            //EuropeRegion = _EuropeViewModel;
+            Factory = factory;            
         }
 
         public AsiaViewModel AsiaRegion { get; set; }
@@ -22,6 +23,11 @@ namespace AutoFac_Scope.World
         public EuropeViewModel EuropeRegion {
             get { return _EuropeRegion; }
             set { _EuropeRegion = value; OnPropertyChanged("EuropeRegion"); }
+        }
+
+        public void LoadEurope()
+        {
+            EuropeRegion = Factory.Invoke();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

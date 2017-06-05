@@ -17,9 +17,15 @@ namespace AutoFac_Scope
         T GetViewModel<T>();        
     }
 
-    public class ViewModelFactory :IFactory
+    public class ViewModelFactory //:IFactory
     {
-        public ILifetimeScope Scope { get; set; }
+        public static ILifetimeScope Scope { get; set; }
+        public static T GetViewModel<T>()
+        {
+            if (Scope == null)
+                throw new ArgumentNullException("Scope is null");
+            return Scope.Resolve<T>();
+        }
         public ViewModelFactory(ILifetimeScope scope)
         {
             Scope = scope;
@@ -30,10 +36,12 @@ namespace AutoFac_Scope
             return Scope.Resolve<T>(parameter);
         }
 
-        public T GetViewModel<T>()
+        public T GetViewModelIns<T>()
         {
             return Scope.Resolve<T>();
         }
+
+
     }
 
 

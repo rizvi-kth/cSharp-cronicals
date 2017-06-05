@@ -23,12 +23,15 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
                 OnPropertyChanged("Feedback");
             }
         }
-        
 
-        public SouthAsiaViewModel()//IFactory MyCreatorFactory
+        // 2. This the Factory-method
+        Func<WorldViewModel> Factory { get; set; }
+        // 1. Client (SouthAsiaViewModel) should depend on a Factory.
+        // AutoFac Delegate-Factory is used to resolve dependency.
+        public SouthAsiaViewModel(Func<WorldViewModel> factory)//IFactory MyCreatorFactory
         {
             LoadEuropeCommand = new RelayCommand((obj) => DoSomeThing());
-            //VMFactory = MyCreatorFactory;
+            Factory = factory;
 
             timer.Elapsed += (timerSender_, timerEvent_) => OnTimerElapsed(); ;
             timer.AutoReset = false;
@@ -40,7 +43,11 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
         {
             Debug.Write(DateTime.Now.Ticks);
             Debug.WriteLine(" > SouthAsiaViewModel:" + this.GetHashCode().ToString());
-            Debug.WriteLine(" > VMFactory:" + VMFactory.GetHashCode().ToString()); 
+            
+            var WorldVM = Factory.Invoke();            
+            Debug.WriteLine(" > WorldVM in SouthAsiaVM:" + WorldVM.GetHashCode().ToString());
+            
+
         }
         private void DoSomeThing()
         {
@@ -50,6 +57,8 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
             //worldVM.EuropeRegion = (EuropeViewModel)europeVM;
             //Debug.WriteLine($" >>> worldVM :{worldVM.GetHashCode()}");
 
+            var WorldVM = Factory.Invoke();
+            WorldVM.LoadEurope();
             Feedback = "Not Loaded!";
 
         }
