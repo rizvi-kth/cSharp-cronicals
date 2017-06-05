@@ -24,8 +24,11 @@ namespace AutoFac_Scope
             var builder = new ContainerBuilder();
             //builder.RegisterType<ServiceProvider>().As<IServiceProvider>().SingleInstance();            
             builder.RegisterType<ViewModelFactory>().InstancePerLifetimeScope();  // Singleton in the scope
+            // Delegate-factory registration
             builder.Register<Func<WorldViewModel>>((context) => { return ViewModelFactory.GetViewModel<WorldViewModel>; });
             builder.Register<Func<EuropeViewModel>>((context) => { return ViewModelFactory.GetViewModel<EuropeViewModel>; });
+            builder.Register<Action>((context) => { return ViewModelFactory.DisposeScope; });
+
 
             builder.RegisterType<MainWindowViewModel>().SingleInstance();
             builder.RegisterType<World.WorldViewModel>().InstancePerLifetimeScope(); // Avoid Singletone and use Lifetime scope

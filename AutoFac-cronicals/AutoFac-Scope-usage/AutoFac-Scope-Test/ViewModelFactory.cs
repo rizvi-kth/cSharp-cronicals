@@ -19,6 +19,8 @@ namespace AutoFac_Scope
 
     public class ViewModelFactory //:IFactory
     {
+        // These static property and method is used by Autofac
+        // for delegate-factory registration.
         public static ILifetimeScope Scope { get; set; }
         public static T GetViewModel<T>()
         {
@@ -26,6 +28,7 @@ namespace AutoFac_Scope
                 throw new ArgumentNullException("Scope is null");
             return Scope.Resolve<T>();
         }
+
         public ViewModelFactory(ILifetimeScope scope)
         {
             Scope = scope;
@@ -38,10 +41,13 @@ namespace AutoFac_Scope
 
         public T GetViewModelIns<T>()
         {
-            return Scope.Resolve<T>();
+            return Scope.Resolve<T>();            
         }
 
-
+        internal static void DisposeScope()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

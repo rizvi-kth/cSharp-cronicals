@@ -59,7 +59,7 @@ namespace AutoFac_Scope.World.Asia.SouthAsia
 
             var WorldVM = Factory.Invoke();
             WorldVM.LoadEurope();
-            Feedback = "Not Loaded!";
+            Feedback = "Loaded!";
 
         }
 
