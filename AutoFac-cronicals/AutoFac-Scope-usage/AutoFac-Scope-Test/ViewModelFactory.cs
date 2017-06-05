@@ -46,7 +46,8 @@ namespace AutoFac_Scope
 
         internal static void DisposeScope()
         {
-            throw new NotImplementedException();
+            
+            Scope.Dispose();
         }
     }
 
