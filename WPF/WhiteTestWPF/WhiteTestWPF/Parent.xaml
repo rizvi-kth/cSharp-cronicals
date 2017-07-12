@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="WhiteTestWPF.Parent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WhiteTestWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Background="BlanchedAlmond">
+        <Button x:Name="yellowButton" Content="Button" HorizontalAlignment="Left" Margin="71,84,0,0" VerticalAlignment="Top" Width="75" Click="yellowButton_Click"/>
+        <Label x:Name="label2" Content="Label" HorizontalAlignment="Left" Margin="175,78,0,0" VerticalAlignment="Top" Width="115"/>
+
+    </Grid>
+</UserControl>
