@@ -16,12 +16,18 @@ namespace SimpleReciever
 {
     class Program
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         static void Main(string[] args)
         {
             // To Enable Log4Net
-            XmlConfigurator.Configure();
+            //XmlConfigurator.Configure();
+            // Or add the following line to AssemblyInfo.cs
+            //[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+            // and add the following line with log decleraton 
+            log.Info("Application Started");
 
-            var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
+        var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
                 var host = cfg.Host(new Uri("rabbitmq://localhost/"), h =>
                 {
