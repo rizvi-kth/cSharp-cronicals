@@ -38,16 +38,13 @@ namespace SimpleSaga
                         context.Instance.SagaProductName = context.Data.ProductName;
                         context.Instance.SagaOrderRecieveTime = DateTime.Now;
                     })
-                    .ThenAsync(async context =>
-                    {
-                        await Console.Out.WriteLineAsync($"Saga >> Order Id {context.Data.OrderId} RECIEVED with correlation {context.Data.CorrelationId}");
-                    })
+                    .ThenAsync(context => Console.Out.WriteLineAsync($"Saga >> Order Id {context.Instance.SagaOrderId} RECIEVED with correlation {context.Instance.CorrelationId}"))
                     .TransitionTo(OrderRecieved)
                     .Publish(context =>
                     {
                         var ore = new OrderRecievedEvent(context.Instance.CorrelationId);
-                        ore.OrderId = context.Data.OrderId;
-                        ore.ProductName = context.Data.ProductName;
+                        ore.OrderId = context.Instance.SagaOrderId;
+                        ore.ProductName = context.Instance.SagaProductName;
                         return ore;
                     })
                 );

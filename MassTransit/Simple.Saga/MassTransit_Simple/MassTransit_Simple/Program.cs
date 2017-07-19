@@ -46,7 +46,7 @@ namespace MassTransit_Simple
             var T1 = endpoint.Send<RegisterOrderCommand>(
                 new
                 {
-                    OrderId = 1111
+                    OrderId = new Random().Next(100,1000)
                 },
                 context =>
                 {
