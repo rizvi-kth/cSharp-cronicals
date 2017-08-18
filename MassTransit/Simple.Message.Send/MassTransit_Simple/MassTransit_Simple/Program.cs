@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MassTransit;
 using SimpleMessages;
+using System.Configuration;
+using System.Threading;
 
 namespace MassTransit_Simple
 {
@@ -12,17 +14,21 @@ namespace MassTransit_Simple
     {
         public static void Main()
         {
+            Console.WriteLine("RABBITMQ Host : " + Environment.GetEnvironmentVariable("RABBITMQ_HOST").ToString());
+
             var busControl = ConfigureBus();
             busControl.Start();
-            
 
             do
             {
                 Console.WriteLine("Enter message (or quit to exit)");
-                Console.Write("Command > ");
-                string value = Console.ReadLine();
+                Console.Write("Command (start with ::)> ");
+                // string value = Console.ReadLine();
+                string value = new Random(9999).Next().ToString();
+                Thread.Sleep(3000);
 
-                if ("quit".Equals(value, StringComparison.OrdinalIgnoreCase))
+                if ("quit".Equals(value, StringComparison.OrdinalIgnoreCase) ||
+                    "exit".Equals(value, StringComparison.OrdinalIgnoreCase))
                     break;
 
                 // Command send 
@@ -42,7 +48,7 @@ namespace MassTransit_Simple
 
         private static async Task SendCommand(IBusControl busControl, string valueToSend )
         {
-            var endpoint = await busControl.GetSendEndpoint(new Uri("rabbitmq://localhost/Tesla.Commands"));
+            var endpoint = await busControl.GetSendEndpoint(new Uri("rabbitmq://"+ Environment.GetEnvironmentVariable("RABBITMQ_HOST").ToString() + "/Tesla.Commands"));
             var T1 = endpoint.Send<CommandChangeValue>(
                 new
                 {
@@ -84,10 +90,10 @@ namespace MassTransit_Simple
         {
             return Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
-                cfg.Host(new Uri("rabbitmq://localhost/"), h =>
+                cfg.Host(new Uri("rabbitmq://" + Environment.GetEnvironmentVariable("RABBITMQ_HOST") + "/"), h =>
                 {
-                    h.Username("guest");
-                    h.Password("guest");
+                    h.Username(Environment.GetEnvironmentVariable("RABBITMQ_USER"));
+                    h.Password(Environment.GetEnvironmentVariable("RABBITMQ_PASS"));
                 });
 
 

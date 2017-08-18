@@ -10,7 +10,7 @@ using MassTransit;
 using MassTransit.Log4NetIntegration;
 using Newtonsoft.Json;
 using SimpleMessages;
-
+using System.Threading;
 
 namespace SimpleReciever
 {
@@ -26,13 +26,14 @@ namespace SimpleReciever
             //[assembly: log4net.Config.XmlConfigurator(Watch = true)]
             // and add the following line with log decleraton 
             log.Info("Application Started");
+            Console.WriteLine("RABBITMQ Consumer : " + Environment.GetEnvironmentVariable("RABBITMQ_HOST").ToString());
 
-        var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
+            var busControl = Bus.Factory.CreateUsingRabbitMq(cfg =>
             {
-                var host = cfg.Host(new Uri("rabbitmq://localhost/"), h =>
+                var host = cfg.Host(new Uri("rabbitmq://"+ Environment.GetEnvironmentVariable("RABBITMQ_HOST") + "/"), h =>
                 {
-                    h.Username("guest");
-                    h.Password("guest");
+                    h.Username(Environment.GetEnvironmentVariable("RABBITMQ_USER"));
+                    h.Password(Environment.GetEnvironmentVariable("RABBITMQ_PASS"));
                 });
 
                 // Recieve endpoint needs this extra configuratioin:
@@ -71,11 +72,13 @@ namespace SimpleReciever
             busControl.Start();
             // To probe bus configuration and return an object graph of the bus.
             ProbeResult result = busControl.GetProbeResult();
-            //Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
-            System.IO.File.WriteAllText(@"C:\Temp\BusSerializedJson.txt", JsonConvert.SerializeObject(result, Formatting.Indented));
+            Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            //System.IO.File.WriteAllText(@"C:\Temp\BusSerializedJson.txt", JsonConvert.SerializeObject(result, Formatting.Indented));
 
-            Console.WriteLine("Listining on tesla");
-            Console.ReadLine();
+            while (true) {
+                Console.WriteLine("Listining on Tesla.Commands");
+                Thread.Sleep(1000);
+            }
             busControl.Stop();
 
         }
