@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  testswagger:
+    image: testswagger
+    build:
+      context: .
+      dockerfile: TestSwagger/Dockerfile
