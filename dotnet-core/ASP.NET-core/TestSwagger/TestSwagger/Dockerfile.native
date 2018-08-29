@@ -4,12 +4,11 @@ EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
-#COPY *.sln ./
-COPY TestSwagger.csproj .
+COPY *.sln ./
+COPY TestSwagger/TestSwagger.csproj TestSwagger/
 RUN dotnet restore
-
 COPY . .
-#WORKDIR /src/TestSwagger
+WORKDIR /src/TestSwagger
 RUN dotnet build -c Release -o /app
 
 FROM build AS publish

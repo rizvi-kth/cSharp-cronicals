@@ -4,12 +4,11 @@ EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
-#COPY *.sln ./
-COPY TestSwagger.csproj .
+COPY *.sln ./
+COPY FoxApp/FoxApp.csproj FoxApp/
 RUN dotnet restore
-
 COPY . .
-#WORKDIR /src/TestSwagger
+WORKDIR /src/FoxApp
 RUN dotnet build -c Release -o /app
 
 FROM build AS publish
@@ -18,4 +17,4 @@ RUN dotnet publish -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "TestSwagger.dll"]
+ENTRYPOINT ["dotnet", "FoxApp.dll"]
