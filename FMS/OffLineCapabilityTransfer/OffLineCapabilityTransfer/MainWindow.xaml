@@ -1,0 +1,59 @@
+﻿<Window x:Class="OffLineCapabilityTransfer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OffLineCapabilityTransfer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="398.543" Width="745.233">
+    <Grid>
+        <Label x:Name="TS_location" Content="Label" HorizontalAlignment="Left" Margin="227,10,0,0" VerticalAlignment="Top" Width="500"/>
+        <Button x:Name="button" Content="Check TS" HorizontalAlignment="Left" Margin="227,36,0,0" VerticalAlignment="Top" Width="67" Click="button_Click"/>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Margin="227,135,0,10" Width="500">
+            <TabItem Header="Create Capability Request">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label" Content="Activation ID" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.526"/>
+                    <TextBox x:Name="txtActivationId" HorizontalAlignment="Left" Height="23" Margin="93,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" Text="299A-C93A-EB17-EA30"/>
+                    <Button x:Name="button1" Content="Create" HorizontalAlignment="Left" Margin="93,68,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+                    <TextBox x:Name="txtFileName" HorizontalAlignment="Left" Height="23" Margin="93,40,0,0" TextWrapping="Wrap" Text="Sample_Capability_Req_Line_Mgnr.bin" VerticalAlignment="Top" Width="275"/>
+                    <Label x:Name="label1" Content="Request file" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.431" Width="78"/>
+                    <Label x:Name="label_Copy" Content="Count" HorizontalAlignment="Left" Margin="287,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.501,0.526"/>
+                    <TextBox x:Name="txtFeatureCount" HorizontalAlignment="Left" Height="23" Margin="334,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42" Text="1"/>
+                    <Button x:Name="btnCreateConformationRequest" Content="Create Conformation Request" HorizontalAlignment="Left" Margin="93,160,0,0" VerticalAlignment="Top" Width="166" Click="BtnCreateConformationRequest_OnClick"/>
+                    <TextBox x:Name="txtCapReqConfFileName" HorizontalAlignment="Left" Height="23" Margin="93,132,0,0" TextWrapping="Wrap" Text="Sample_Capability_Req_Line_Mgnr_conf.bin" VerticalAlignment="Top" Width="275"/>
+                    <Label x:Name="label1_Copy" Content="Request file" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.431" Width="78"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Process Capability Response">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="txtResponseFileName" HorizontalAlignment="Left" Height="23" Margin="99,40,0,0" TextWrapping="Wrap" Text="000EC6F975A6.bin" VerticalAlignment="Top" Width="337"/>
+                    <Label x:Name="Response_File" Content="Response File" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.431" Width="89"/>
+                    <Button x:Name="btnProcessResponse" Content="Process to TS" HorizontalAlignment="Left" Margin="99,71,0,0" VerticalAlignment="Top" Width="98" Click="BtnProcessResponse_OnClick"/>
+                    <TextBox x:Name="txtAcureFeature" HorizontalAlignment="Left" Height="23" Margin="99,111,0,0" TextWrapping="Wrap" Text="Line_Manager" VerticalAlignment="Top" Width="98"/>
+                    <Label x:Name="Response_File_Copy" Content="Aquire feature" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.431" Width="89"/>
+                    <Label x:Name="Response_File_Copy1" Content="Aquire feature count" HorizontalAlignment="Left" Margin="218,109,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.431" Width="118"/>
+                    <TextBox x:Name="txtAcquireFeatureCount" HorizontalAlignment="Left" Height="23" Margin="336,111,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="48"/>
+                    <Button x:Name="btnAcquireFeature" Content="Acquire Feature" HorizontalAlignment="Left" Margin="100,148,0,0" VerticalAlignment="Top" Width="98" Click="BtnAcquireFeature_OnClick"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Licenses ActivationID">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="169*"/>
+                        <ColumnDefinition Width="321*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="textBlock" IsEnabled="True" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Line_Manager" VerticalAlignment="Top" Width="146" Height="22"/>
+                    <TextBox x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="14,10,0,0" TextWrapping="Wrap" Text="299A-C93A-EB17-EA30" VerticalAlignment="Top" Width="263" Height="22" Grid.Column="1"/>
+                    <TextBox x:Name="textBlock1" HorizontalAlignment="Left" Margin="10,37,0,0" TextWrapping="Wrap" Text="Line_Configurator" VerticalAlignment="Top" Width="146" Height="22"/>
+                    <TextBox x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="14,37,0,0" TextWrapping="Wrap" Text="CF09-D5A3-C084-1361" VerticalAlignment="Top" Width="263" Height="22" Grid.Column="1"/>
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <ListBox x:Name="listHostIds" HorizontalAlignment="Left" Margin="10,36,0,10" Width="212"/>
+        <Label x:Name="lblHostId" Content="Label" HorizontalAlignment="Left" Margin="227,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.532,0.48" Width="500" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="TS_location_Copy" Content="Available Host IDs" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="212"/>
+
+    </Grid>
+</Window>

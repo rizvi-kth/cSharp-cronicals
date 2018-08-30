@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseServerToolScaleable", "LicenseServerToolScaleable\LicenseServerToolScaleable.csproj", "{3EEC655B-459B-474D-9460-7B3B997A4923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonMessages", "CommonMessages\CommonMessages.csproj", "{B454DD00-E93F-4882-8B91-6847CB9104C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecieverTool", "RecieverTool\RecieverTool.csproj", "{9BB2CE9D-8DE5-4713-A4B9-7A3D7EED1086}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EEC655B-459B-474D-9460-7B3B997A4923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EEC655B-459B-474D-9460-7B3B997A4923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EEC655B-459B-474D-9460-7B3B997A4923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EEC655B-459B-474D-9460-7B3B997A4923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B454DD00-E93F-4882-8B91-6847CB9104C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B454DD00-E93F-4882-8B91-6847CB9104C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B454DD00-E93F-4882-8B91-6847CB9104C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B454DD00-E93F-4882-8B91-6847CB9104C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BB2CE9D-8DE5-4713-A4B9-7A3D7EED1086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BB2CE9D-8DE5-4713-A4B9-7A3D7EED1086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BB2CE9D-8DE5-4713-A4B9-7A3D7EED1086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BB2CE9D-8DE5-4713-A4B9-7A3D7EED1086}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
